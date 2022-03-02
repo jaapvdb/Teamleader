@@ -8,7 +8,7 @@ setup(
     description="A layer on top of the Teamleader v2 API",
     author="Jaap",
     author_email="jaap1@me.com",
-    url="https://github.com/HeroPP",
+    url="https://github.com/HeroPP/Teamleader",
     download_url="https://github.com/HeroPP/Teamleader/archive/refs/tags/v.1.0.0.tar.gz",
     keywords=["Teamleader", "API", "CRM"],
     install_requires=[
