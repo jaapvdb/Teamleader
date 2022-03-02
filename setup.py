@@ -3,17 +3,24 @@ from distutils.core import setup
 setup(
     name="Teamleader",
     packages=["Teamleader"],
-    version="1.0",
+    version="1.0.1",
     license="MIT",
     description="A layer on top of the Teamleader v2 API",
     author="Jaap",
     author_email="jaap1@me.com",
     url="https://github.com/HeroPP/Teamleader",
-    download_url="https://github.com/HeroPP/Teamleader/archive/refs/tags/v.1.0.0.tar.gz",
+    download_url="https://github.com/HeroPP/Teamleader/archive/refs/tags/v1.0.1.tar.gz",
     keywords=["Teamleader", "API", "CRM"],
     install_requires=[
-        "validators",
-        "beautifulsoup4",
+        "certifi",
+        "charset-normalizer",
+        "idna",
+        "oauthlib",
+        "pickle5",
+        "ratelimit",
+        "requests",
+        "requests-oauthlib",
+        "urllib3",
     ],
     classifiers=[  # Optional
         # How mature is this project? Common values are
