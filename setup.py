@@ -1,9 +1,9 @@
 from distutils.core import setup
 
 setup(
-    name="Teamleader",
-    packages=["Teamleader"],
-    version="1.0.1",
+    name="teamleader",
+    packages=["teamleader"],
+    version="1.0.2",
     license="MIT",
     description="A layer on top of the Teamleader v2 API",
     author="Jaap",
