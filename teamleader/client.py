@@ -2,7 +2,6 @@ import configparser
 import logging
 import webbrowser
 
-import pickle5 as pickle
 import requests
 from ratelimit import limits, sleep_and_retry
 from requests_oauthlib import OAuth2Session
