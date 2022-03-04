@@ -3,13 +3,13 @@ from distutils.core import setup
 setup(
     name="teamleader",
     packages=["teamleader"],
-    version="1.0.2",
+    version="1.0.5",
     license="MIT",
     description="A layer on top of the Teamleader v2 API",
     author="Jaap",
     author_email="jaap1@me.com",
     url="https://github.com/HeroPP/Teamleader",
-    download_url="https://github.com/HeroPP/Teamleader/archive/refs/tags/v1.0.1.tar.gz",
+    download_url="https://github.com/HeroPP/Teamleader/archive/refs/tags/v1.0.5.tar.gz",
     keywords=["Teamleader", "API", "CRM"],
     install_requires=[
         "certifi",
