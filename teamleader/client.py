@@ -21,31 +21,35 @@ class Client:
         client_secret=None,
         teamleader_token_file_name=None,
         config_file_path=None,
+        client: OAuth2Session = None,
     ):
-        if config_file_path:
-            config = configparser.ConfigParser()
-            config_file_path = os.path.abspath(config_file_path)
-            if not os.path.isfile(config_file_path):
-                raise FileNotFoundError("Config file not found")
-            config.read(config_file_path)
-            client_id = config["teamleader"]["CLIENT_ID"]
-            client_secret = config["teamleader"]["CLIENT_SECRET"]
-            teamleader_token_file_name = config["teamleader"]["TOKEN_FILE_PATH"]
+        if client:
+            self.client = client
+        else:
+            if config_file_path:
+                config = configparser.ConfigParser()
+                config_file_path = os.path.abspath(config_file_path)
+                if not os.path.isfile(config_file_path):
+                    raise FileNotFoundError("Config file not found")
+                config.read(config_file_path)
+                client_id = config["teamleader"]["CLIENT_ID"]
+                client_secret = config["teamleader"]["CLIENT_SECRET"]
+                teamleader_token_file_name = config["teamleader"]["TOKEN_FILE_PATH"]
 
-        if not (client_id and client_secret and teamleader_token_file_name):
-            raise ValueError("All parameters should be filled")
+            if not (client_id and client_secret and teamleader_token_file_name):
+                raise ValueError("All parameters should be filled")
 
-        self.teamleader_token_file_name = teamleader_token_file_name
-        self.client = OAuth2Session(
-            client_id,
-            token=self._get_token(client_id=client_id, client_secret=client_secret),
-            auto_refresh_url=REFRESH_URL,
-            auto_refresh_kwargs={
-                "client_id": client_id,
-                "client_secret": client_secret,
-            },
-            token_updater=self._token_saver,
-        )
+            self.teamleader_token_file_name = teamleader_token_file_name
+            self.client = OAuth2Session(
+                client_id,
+                token=self._get_token(client_id=client_id, client_secret=client_secret),
+                auto_refresh_url=REFRESH_URL,
+                auto_refresh_kwargs={
+                    "client_id": client_id,
+                    "client_secret": client_secret,
+                },
+                token_updater=self._token_saver,
+            )
         self.departments = Departments(self.get_teamleader, self.post_teamleader)
         self.users = Users(self.get_teamleader, self.post_teamleader)
         self.projects = Projects(self.get_teamleader, self.post_teamleader)
