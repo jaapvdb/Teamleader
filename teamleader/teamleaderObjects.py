@@ -199,3 +199,9 @@ class Teams(TeamleaderPagesList):
     def __init__(self, get_teamleader, post_teamleader) -> None:
         self.url = "teams"
         self.get = get_teamleader
+
+
+class Subscriptions(TeamleaderPagesList, TeamleaderInfo):
+    def __init__(self, get_teamleader, post_teamleader) -> None:
+        self.url = "subscriptions"
+        self.get = get_teamleader
