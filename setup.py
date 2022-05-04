@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name="teamleader",
     packages=["teamleader"],
-    version="1.1.1",
+    version="1.1.2",
     license="MIT",
     description="A layer on top of the Teamleader v2 API",
     author="Jaap",

@@ -16,12 +16,12 @@ REFRESH_URL = "https://app.teamleader.eu/oauth2/access_token"
 
 class Client:
     def __init__(
-        self,
-        client_id=None,
-        client_secret=None,
-        teamleader_token_file_name=None,
-        config_file_path=None,
-        client: OAuth2Session = None,
+            self,
+            client_id=None,
+            client_secret=None,
+            teamleader_token_file_name=None,
+            config_file_path=None,
+            client: OAuth2Session = None,
     ):
         if client:
             self.client = client
@@ -70,6 +70,7 @@ class Client:
         self.deals = Deals(self.get_teamleader, self.post_teamleader)
         self.lostreasons = LostReasons(self.get_teamleader, self.post_teamleader)
         self.teams = Teams(self.get_teamleader, self.post_teamleader)
+        self.subscriptions = Subscriptions(self.get_teamleader, self.post_teamleader)
 
     def _get_token(self, client_id, client_secret):
         try:
